@@ -1,6 +1,12 @@
 import React from 'react'
 
-const ProfilePage = (props) => {
+interface Props {
+    params: {
+        username: String[];
+    };
+}
+
+const ProfilePage = (props: Props) => {
     console.log(props);
 
   return (
