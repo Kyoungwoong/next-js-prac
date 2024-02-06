@@ -15,7 +15,7 @@ interface Props {
 
 const UserTable = async ({sortOrder}: Props) => {
 
-    const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+    const res = await fetch("https://jsonplaceholder.typicode.com/userxxxs", {
         cache: "no-store",
         // next: {revalidate: 10},
     });
