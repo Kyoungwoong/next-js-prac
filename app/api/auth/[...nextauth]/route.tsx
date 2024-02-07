@@ -1,12 +1,21 @@
-import NextAuth from "next-auth"
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import {PrismaAdapter} from "@auth/prisma-adapter";
+import prisma from "@/prisma/client";
 
 export const authOptions = {
+    adapter: PrismaAdapter(prisma),
+
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID!,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
         }),
     ],
+
+    session: { // 세션 방식을 jwt로 바꾸기
+        strategy: "jwt",
+    }
 }
 
 const handler = NextAuth(authOptions);
