@@ -2,6 +2,7 @@ import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
 import {authOptions} from "./api/auth/[...nextauth]/route";
+import coffee from "@/public/images/coffee.jpg";
 
 export default async function Home() {
   
@@ -9,12 +10,15 @@ export default async function Home() {
 
   return (
     <main>
-      <h1>
-        안녕하세요 - {session && <span>{session.user!.name}</span>}님! 반갑습니다.
-      </h1>
-      {/* <a href="/users">users</a> */}
-      <Link href ="/users">USERS</Link>
-      <ProductCard/>
+      {/* 내부 이미지는 아래와 같이 가능 */}
+      {/* <Image src={coffee} alt="coffee"/>  */}
+      {/* 외부 이미지는 아래와 같이 작성 및 next.config 파일에 신뢰성 설정 */}
+      <Image
+        src="https://bit.ly/react-cover"
+        alt="coffee"
+        width={500}
+        height={500}
+      />
     </main>
   );
 }
