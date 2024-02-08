@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./NavBar";
 import { Suspense } from "react";
+import {SessionProvider} from "next-auth/react";
+import AuthProvider from "./auth/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +21,19 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-          <NavBar/>
-          <main className="p-5">
-            <Suspense>
-              {children}
-            </Suspense>
-          </main>
+        <AuthProvider>
+            <NavBar/>
+            <main className="p-5">
+              <Suspense>
+                {children}
+              </Suspense>
+            </main>
+          </AuthProvider>
       </body>
     </html>
   );
 }
+
+/*
+ * 컴포넌트에서 클라이언트 전용 기능을 사용하면서 동시에 데이터를 내보내려 할 때 오류 발생.
+ */

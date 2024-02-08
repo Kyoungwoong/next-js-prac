@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+# Build
+
+``` bash
+npm run build
+```
+
+## github 올리기
+
+## vercel로 배포
+
+프리즈마 클라이언트 생성 & 넥스트 앱 빌드
+
+```bash
+npx prisma generate && next build
+```
